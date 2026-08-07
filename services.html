@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spa Menu & Services - 2001 Nails of Woodbury</title>
+  <meta name="description" content="Explore our menu of detail-focused manicures, pedicures, and kids spa nail treatments at 2001 Nails of Woodbury. Switch between cash and credit rates.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/blobs-02.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/global.css">
+  
+  <style>
+    /* Services Page Custom Styles */
+    
+    /* Services Banner */
+    .services-banner {
+      position: relative;
+      background-image: linear-gradient(rgba(79, 90, 66, 0.46), rgba(48, 45, 40, 0.62)), url('/assets/images/services-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0 80px;
+      text-align: center;
+      color: var(--color-white);
+    }
+    
+    .services-banner h1 {
+      color: var(--color-white);
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .services-banner p {
+      font-family: var(--font-subheadings);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold-light);
+    }
+    
+    /* Cash/Credit Switcher Control */
+    .switcher-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px 0 60px;
+    }
+    
+    .switcher-container {
+      background-color: var(--color-white);
+      padding: 8px 16px;
+      border-radius: 50px;
+      box-shadow: var(--box-shadow);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid rgba(79, 90, 66, 0.08);
+    }
+    
+    .toggle-label {
+      font-family: var(--font-subheadings);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    
+    .toggle-label.active {
+      color: var(--color-primary);
+    }
+    
+    /* Custom Toggle Switch Switcher */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-gold-light);
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 4px;
+      background-color: var(--color-white);
+      transition: .4s;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    input:checked + .slider {
+      background-color: var(--color-primary);
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(28px);
+    }
+    
+    /* Services Categories Lists Layout */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+    
+    .service-category-title {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--color-gold);
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+    
+    .menu-block {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 40px;
+      border: 1px solid rgba(79, 90, 66, 0.08);
+    }
+
+    .menu-block.has-bg-img {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      padding: 20px; /* Padding for floating organic image */
+      align-items: center;
+    }
+
+    .menu-block-content {
+      padding: 20px 20px 20px 10px;
+    }
+
+    .menu-block-img {
+      background-size: cover;
+      background-position: center;
+      min-height: 380px;
+      border-radius: var(--radius-organic);
+      border: 8px solid rgba(255, 250, 242, 0.84);
+      box-shadow: 0 16px 36px rgba(79, 90, 66, 0.12);
+      width: 100%;
+    }
+    
+    .service-section-intro {
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    
+    /* Price Item Styles */
+    .price-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+    }
+    
+    .price-list-title-desc {
+      flex: 1;
+      max-width: 70%;
+    }
+    
+    .price-list-title {
+      font-family: var(--font-subheadings);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .price-list-desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+    
+    .price-list-dots {
+      flex-grow: 1;
+      border-bottom: 1px dotted var(--color-gold);
+      margin: 0 12px;
+      position: relative;
+      top: -4px;
+    }
+    
+    .service-price {
+      font-family: var(--font-subheadings);
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+    
+    .sub-category-title {
+      font-family: var(--font-subheadings);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 30px 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .sub-category-title:first-of-type {
+      margin-top: 0;
+    }
+    
+    /* Responsive grids */
+    @media (max-width: 992px) {
+      .menu-block.has-bg-img {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 16px;
+      }
+      .menu-block-img {
+        min-height: 280px;
+        order: -1;
+      }
+      .menu-block-content {
+        padding: 10px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .services-banner h1 {
+        font-size: 2.8rem;
+      }
+      .menu-block {
+        padding: 24px;
+      }
+      .menu-block-content {
+        padding: 10px 0px;
+      }
+      .price-list-title {
+        font-size: 0.95rem;
+      }
+      .service-price {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <a href="/" class="logo-container">
+        <span class="logo-text">2001 NAILS</span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/gallery.html" class="nav-link">Gallery</a>
+        <a href="/services.html" class="nav-link active">Services</a>
+        <a href="/contact.html" class="nav-link">Contact Us</a>
+        <a href="tel:+16515788423" class="cta-phone-btn">
+          <i class="fas fa-phone-alt"></i> (651) 578-8423
+        </a>
+      </nav>
+
+      <button class="burger-menu" id="burger-btn" aria-label="Toggle menu">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="/services.html" class="mobile-nav-link active">Services</a>
+    <a href="/contact.html" class="mobile-nav-link">Contact Us</a>
+    <div class="mobile-nav-cta">
+      <a href="tel:+16515788423" class="cta-phone-btn" style="display: flex; justify-content: center; width: 100%;">
+        <i class="fas fa-phone-alt"></i> (651) 578-8423
+      </a>
+    </div>
+  </nav>
+
+  <!-- Services Banner -->
+  <section class="services-banner">
+    <div class="container">
+      <h1>Spa Menu</h1>
+      <p>Pamper Yourself with the Best Pricing</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-bottom: 80px;">
+    
+    <!-- Cash/Credit Switcher -->
+    <div class="switcher-wrapper">
+      <div class="switcher-container">
+        <span class="toggle-label cash active">Cash Rate</span>
+        <label class="switch">
+          <input type="checkbox" id="price-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-label credit">Credit Rate</span>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services-grid">
+      
+      <!-- 1. Manicures -->
+      <section id="manicure">
+        <h2 class="service-category-title">Manicures</h2>
+        <div class="menu-block has-bg-img">
+          <div class="menu-block-content">
+            <p class="service-section-intro">Professional care for your hands and nails, tailored to your choice of style.</p>
+            <ul>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Signature Manicure</span>
+                  <p class="price-list-desc">Nail trim, shape, buff, cuticle care, hand massage, and regular polish (30 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$28" data-credit="$28.84">$28</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Signature Gel Manicure</span>
+                  <p class="price-list-desc">Signature care finished with long-lasting, chip-free gel polish (30 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$41+" data-credit="$42.23+">$41+</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Dip Powder Manicure (Full Set)</span>
+                  <p class="price-list-desc">Durable, light dipping powder full set or overlay (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$51+" data-credit="$52.53+">$51+</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">OPI Powder (Full Set)</span>
+                  <p class="price-list-desc">Premium OPI dipping powder application for natural feeling nails (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$51+" data-credit="$52.53+">$51+</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Pink & White (Full Set)</span>
+                  <p class="price-list-desc">Permanent pink and white design dipping set for a classic look (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$66+" data-credit="$67.98+">$66+</span>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-block-img" style="background-image: url('/assets/images/services-list-bg2.jpg')"></div>
+        </div>
+      </section>
+
+      <!-- 2. Pedicures -->
+      <section id="pedicure">
+        <h2 class="service-category-title">Pedicures</h2>
+        <div class="menu-block has-bg-img">
+          <div class="menu-block-content">
+            <p class="service-section-intro">Unwind with restorative foot soaks and premium skin treatments.</p>
+            <ul>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Classic Pedicure</span>
+                  <p class="price-list-desc">Soak, nail trim, shape, buff, cuticle care, heel callus treatment, exfoliating scrub, and oil/lotion massage (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$43" data-credit="$44.29">$43</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Deluxe Pedicure</span>
+                  <p class="price-list-desc">Classic care plus herbal soak, herbal scrub, leg mask with warm towel wrap, hot stone massage, and hands/shoulders massage (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$48" data-credit="$49.44">$48</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Signature Pedicure</span>
+                  <p class="price-list-desc">Classic care plus sea salt exfoliating scrub, hot stone massage, and deep oil/lotion massage (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$53" data-credit="$54.59">$53</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Rejuvenation Pedicure</span>
+                  <p class="price-list-desc">Jelly soak, cuticle care, herbal sugar scrub, leg mask, warm towel wrap, hot stone massage, and paraffin wax treatment (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$68" data-credit="$70.04">$68</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Herbal Pedicure</span>
+                  <p class="price-list-desc">Classic care plus custom herbal sugar scrub, leg mask, warm towel wrap, and relaxing oil/lotion massage (45 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$90" data-credit="$92.70">$90</span>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-block-img" style="background-image: url('/assets/images/services-list-bg1.jpg')"></div>
+        </div>
+      </section>
+
+      <!-- 3. Kids Spa Services -->
+      <section id="kids">
+        <h2 class="service-category-title">Kids Spa Services (Ages 10 & Under)</h2>
+        <div class="menu-block has-bg-img">
+          <div class="menu-block-content">
+            <p class="service-section-intro">Gentle nail care and mini-treatments for our young guests.</p>
+            <ul>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Kids Manicure</span>
+                  <p class="price-list-desc">Gentle hand soak, nail shaping, light hand massage, and regular polish (30 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$15" data-credit="$15.45">$15</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Kids Pedicure</span>
+                  <p class="price-list-desc">Warm foot soak, gentle nail shaping, cuticle care, light foot massage, and regular polish (30 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$27" data-credit="$27.81">$27</span>
+              </li>
+              <li class="price-list-item">
+                <div class="price-list-title-desc">
+                  <span class="price-list-title">Kids Pedicure + Manicure Combo</span>
+                  <p class="price-list-desc">The ultimate pampering package for hands and feet (30 mins).</p>
+                </div>
+                <div class="price-list-dots"></div>
+                <span class="service-price" data-cash="$37" data-credit="$38.11">$37</span>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-block-img" style="background-image: url('/assets/images/IMG_1879.jpeg')"></div>
+        </div>
+      </section>
+
+      <!-- 4. Additional Services & Add-Ons -->
+      <section id="add-ons">
+        <h2 class="service-category-title">Additional Services & Add-Ons</h2>
+        <div class="menu-block">
+          <div class="grid grid-2">
+            <div>
+              <div class="sub-category-title">Polish & Removal</div>
+              <ul>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Regular Polish Change (Hands)</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="$20" data-credit="$20.60">$20</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Regular Polish Change (Toes)</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="$20" data-credit="$20.60">$20</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Gel Polish Change (Hands)</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="$36" data-credit="$37.08">$36</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Gel Polish Change (Toes)</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="$36" data-credit="$37.08">$36</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Gel Take Off (Removal Only)</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="$20" data-credit="$20.60">$20</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Dip / Acrylic Take Off (Removal Only)</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="$25" data-credit="$25.75">$25</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="sub-category-title">Styling & Customizations</div>
+              <ul>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">French or American Add-On</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="+$7" data-credit="+$7.21">+$7</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Hot Stone Add-On</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="+$5" data-credit="+$5.15">+$5</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Paraffin Mask Add-On</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="+$12" data-credit="+$12.36">+$12</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Jelly Add-On</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="+$10" data-credit="+$10.30">+$10</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Nail Design Add-On</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="+$10+" data-credit="+$10.30+">+$10+</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Medium / Long Length Add-On</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="+$5 / +$10" data-credit="+$5.15 / +$10.30">+$5 / +$10</span>
+                </li>
+                <li class="price-list-item">
+                  <div class="price-list-title-desc">
+                    <span class="price-list-title">Almond, Coffin, Oval or Stiletto Shape</span>
+                  </div>
+                  <div class="price-list-dots"></div>
+                  <span class="service-price" data-cash="+$5" data-credit="+$5.15">+$5</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>About Spa</h4>
+          <p>Located in the heart of Woodbury, MN 55125, 2001 Nails of Woodbury is your go-to nail salon for all your beauty needs. Visit us for premium experiences of manicures, pedicures, and nail care.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/LeLaniNailSpa" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lelani_nail_spa" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.yelp.com/biz/le-lani-nail-spa-los-angeles" target="_blank" class="social-link" aria-label="Yelp"><i class="fab fa-yelp"></i></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=1815%20Radio%20Dr%2C%20Woodbury%2C%20MN%2055125" target="_blank" class="social-link" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Business Hours</h4>
+          <p><strong>Mon - Sat:</strong> 10:00 AM - 7:00 PM</p>
+          <p><strong>Sunday:</strong> 10:00 AM - 5:00 PM</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact & Location</h4>
+          <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--color-gold);"></i> 1815 Radio Dr<br>Woodbury, MN 55125</p>
+          <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--color-gold);"></i> <a href="tel:+16515788423">(651) 578-8423</a></p>
+          <p><i class="fas fa-envelope" style="margin-right: 8px; color: var(--color-gold);"></i> 2001nailsofwoodbury@gmail.com</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 2001 Nails of Woodbury. All Rights Reserved. | nail salon 55125 | best nail salon woodbury</p>
+        <p>Design inspired by NailSoft</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page Scripts -->
+  <script src="/assets/js/services.js"></script>
+</body>
+</html>

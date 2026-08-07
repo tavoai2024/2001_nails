@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="512" height="512" viewBox="0 0 512 512">
+  <title>2001 Nails of Woodbury — Favicon</title>
+  <rect id="field" width="512" height="512" rx="112" fill="#4f5a42"/>
+  <g inkscape:groupmode="layer" inkscape:label="Botanical mark" id="botanical"
+     transform="translate(166 50) scale(.58)" fill="none" stroke="#d9c7aa"
+     stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 18,238 C 73,229 112,198 146,157 C 185,109 220,64 304,18"/>
+    <path d="M 82,204 C 64,178 70,143 92,112 C 101,145 99,178 82,204 Z"/>
+    <path d="M 127,174 C 109,144 116,105 143,73 C 151,111 147,149 127,174 Z"/>
+    <path d="M 170,121 C 155,89 164,51 188,22 C 196,63 191,97 170,121 Z"/>
+    <path d="M 157,136 C 183,96 221,66 265,45 C 241,87 204,122 157,136 Z"/>
+    <path d="M 148,151 C 181,124 218,113 254,117 C 226,139 187,153 148,151 Z"/>
+    <path d="M 126,175 C 165,153 211,148 254,157 C 218,180 172,187 126,175 Z"/>
+  </g>
+  <g inkscape:groupmode="layer" inkscape:label="Wordmark" id="wordmark"
+     fill="#fffaf2" text-anchor="middle">
+    <text id="name" x="256" y="362" font-family="Didot" font-size="154" letter-spacing="2">2001</text>
+    <text id="service" x="256" y="414" font-family="Didot" font-size="22" letter-spacing="8">NAILS</text>
+  </g>
+</svg>

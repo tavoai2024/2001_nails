@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">2001 Nails favicon</title>
+  <desc id="description">The complete custom 2001 mark in ivory on an earth-green field.</desc>
+  <defs>
+    <g id="letter-n"><path d="M0 32V0l20 32V0"/></g>
+    <g id="letter-a"><path d="M0 32 10 0l10 32M4 20h12"/></g>
+    <g id="letter-i"><path d="M0 0h20M10 0v32M0 32h20"/></g>
+    <g id="letter-l"><path d="M0 0v32h20"/></g>
+    <g id="letter-s"><path d="M20 4C15-1 4-1 1 7c-3 8 4 11 11 13 8 2 10 6 7 11-5 5-15 4-19-2"/></g>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="#304738"/>
+  <path d="M256 62l9 12-9 12-9-12Z" fill="#c7a76a"/>
+  <g transform="translate(52 126) scale(.7)" fill="none" stroke="#f7f4ec" stroke-linejoin="miter">
+    <path d="M10 63C13 26 44 1 84 1c42 0 70 23 70 61" stroke-width="7"/>
+    <circle cx="10" cy="63" r="8" fill="#f7f4ec" stroke="none"/>
+    <path d="M154 60c-1 42-39 76-72 106-29 27-51 48-64 62" stroke-width="18" stroke-linecap="butt"/>
+    <path d="M18 228h147" stroke-width="7"/>
+    <ellipse cx="254" cy="116" rx="64" ry="115" stroke-width="7"/>
+    <path d="M216 19c-33 38-33 156 0 194" stroke-width="18" stroke-linecap="butt"/>
+    <ellipse cx="404" cy="116" rx="64" ry="115" stroke-width="7"/>
+    <path d="M366 19c-33 38-33 156 0 194" stroke-width="18" stroke-linecap="butt"/>
+    <path d="m495 46 53-45" stroke-width="7"/>
+    <path d="M548 1v227" stroke-width="18" stroke-linecap="butt"/>
+    <path d="M510 228h76" stroke-width="7"/>
+  </g>
+  <g transform="translate(162 359)" fill="none" stroke="#f7f4ec" stroke-width="2.25" stroke-linecap="square" stroke-linejoin="miter">
+    <use href="#letter-n" x="0"/><use href="#letter-a" x="42"/><use href="#letter-i" x="84"/><use href="#letter-l" x="126"/><use href="#letter-s" x="168"/>
+  </g>
+</svg>

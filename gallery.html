@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery & Design Inspiration - 2001 Nails of Woodbury</title>
+  <meta name="description" content="Explore beautiful nail art designs, luxury manicures, and pedicures at 2001 Nails of Woodbury. Our gallery showcases current trends and professional spa work in Woodbury, MN.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/blobs-02.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/global.css">
+  
+  <style>
+    /* Gallery Page Custom Styles */
+    
+    .gallery-header {
+      text-align: center;
+      padding: 100px 0 50px;
+      background-color: #e8dfcf;
+    }
+    
+    .gallery-header h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .gallery-header p {
+      font-family: var(--font-subheadings);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+    }
+    
+    .gallery-intro-text {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--color-text-muted);
+      margin-bottom: 60px;
+      font-size: 1.05rem;
+    }
+
+    /* Grid of Placeholders */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    
+    .gallery-placeholder-card {
+      background-color: var(--color-white);
+      border: 2px dashed var(--color-gold-light);
+      border-radius: var(--radius-organic);
+      aspect-ratio: 1/1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition-smooth);
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .gallery-placeholder-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .placeholder-icon {
+      font-size: 2.2rem;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+      transition: var(--transition-smooth);
+    }
+    
+    .gallery-placeholder-card:hover .placeholder-icon {
+      color: var(--color-primary);
+      transform: scale(1.1);
+    }
+    
+    .placeholder-title {
+      font-family: var(--font-subheadings);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+    
+    .placeholder-desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      max-width: 200px;
+    }
+
+    .placeholder-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: var(--color-bg);
+      color: var(--color-primary);
+      font-family: var(--font-subheadings);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-header h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <a href="/" class="logo-container">
+        <span class="logo-text">2001 NAILS</span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/gallery.html" class="nav-link active">Gallery</a>
+        <a href="/services.html" class="nav-link">Services</a>
+        <a href="/contact.html" class="nav-link">Contact Us</a>
+        <a href="tel:+16515788423" class="cta-phone-btn">
+          <i class="fas fa-phone-alt"></i> (651) 578-8423
+        </a>
+      </nav>
+
+      <button class="burger-menu" id="burger-btn" aria-label="Toggle menu">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/gallery.html" class="mobile-nav-link active">Gallery</a>
+    <a href="/services.html" class="mobile-nav-link">Services</a>
+    <a href="/contact.html" class="mobile-nav-link">Contact Us</a>
+    <div class="mobile-nav-cta">
+      <a href="tel:+16515788423" class="cta-phone-btn" style="display: flex; justify-content: center; width: 100%;">
+        <i class="fas fa-phone-alt"></i> (651) 578-8423
+      </a>
+    </div>
+  </nav>
+
+  <!-- Gallery Header -->
+  <section class="gallery-header">
+    <div class="container">
+      <h1>Our Gallery</h1>
+      <p>Luxury Nail Designs & Spa Moments</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="margin-top: 40px;">
+    
+    <p class="gallery-intro-text">Explore our collection of hand-crafted nail sets, luxurious treatments, and artistic designs. Hover or click to view placeholder details. Images will be uploaded here shortly.</p>
+
+    <!-- Grid of placeholders -->
+    <div class="gallery-grid">
+      
+      <!-- Card 1 -->
+      <div class="gallery-placeholder-card">
+        <span class="placeholder-badge">Nail Art</span>
+        <i class="fa-regular fa-image placeholder-icon"></i>
+        <h3 class="placeholder-title">Aesthetic Gel-X Set</h3>
+        <p class="placeholder-desc">Placeholder container for a custom chrome or cat-eye nail extension photo.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gallery-placeholder-card">
+        <span class="placeholder-badge">Manicure</span>
+        <i class="fa-regular fa-image placeholder-icon"></i>
+        <h3 class="placeholder-title">Builder Gel Overlay</h3>
+        <p class="placeholder-desc">Placeholder container for natural builder gel overlays with clean finishes.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gallery-placeholder-card">
+        <span class="placeholder-badge">Pedicure</span>
+        <i class="fa-regular fa-image placeholder-icon"></i>
+        <h3 class="placeholder-title">Deluxe Spa Pedicure</h3>
+        <p class="placeholder-desc">Placeholder container for feet soaking, sugar scrub, and clean polish.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="gallery-placeholder-card">
+        <span class="placeholder-badge">Nail Art</span>
+        <i class="fa-regular fa-image placeholder-icon"></i>
+        <h3 class="placeholder-title">French Tip Variations</h3>
+        <p class="placeholder-desc">Placeholder container for classic white and colored french tips on hands.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="gallery-placeholder-card">
+        <span class="placeholder-badge">Nail Art</span>
+        <i class="fa-regular fa-image placeholder-icon"></i>
+        <h3 class="placeholder-title">Custom Design Set</h3>
+        <p class="placeholder-desc">Placeholder container for seasonal designs and detailed hand-painted artwork.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="gallery-placeholder-card">
+        <span class="placeholder-badge">Spa Interior</span>
+        <i class="fa-regular fa-image placeholder-icon"></i>
+        <h3 class="placeholder-title">Woodbury Relaxation</h3>
+        <p class="placeholder-desc">Placeholder container showcasing our clean, sterilized spa interior.</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>About Spa</h4>
+          <p>Located in the heart of Woodbury, MN 55125, 2001 Nails of Woodbury is your go-to nail salon for all your beauty needs. Visit us for premium experiences of manicures, pedicures, and nail care.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/LeLaniNailSpa" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lelani_nail_spa" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.yelp.com/biz/le-lani-nail-spa-los-angeles" target="_blank" class="social-link" aria-label="Yelp"><i class="fab fa-yelp"></i></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=1815%20Radio%20Dr%2C%20Woodbury%2C%20MN%2055125" target="_blank" class="social-link" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Business Hours</h4>
+          <p><strong>Mon - Sat:</strong> 10:00 AM - 7:00 PM</p>
+          <p><strong>Sunday:</strong> 10:00 AM - 5:00 PM</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact & Location</h4>
+          <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--color-gold);"></i> 1815 Radio Dr<br>Woodbury, MN 55125</p>
+          <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--color-gold);"></i> <a href="tel:+16515788423">(651) 578-8423</a></p>
+          <p><i class="fas fa-envelope" style="margin-right: 8px; color: var(--color-gold);"></i> 2001nailsofwoodbury@gmail.com</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 2001 Nails of Woodbury. All Rights Reserved. | nail salon 55125 | best nail salon woodbury</p>
+        <p>Design inspired by NailSoft</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page Scripts -->
+  <script>
+    // Header scrolled state
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile nav drawer toggle
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMobileNav() {
+      mobileNav.classList.toggle('open');
+      overlay.classList.toggle('active');
+      burgerBtn.classList.toggle('active');
+    }
+
+    burgerBtn.addEventListener('click', toggleMobileNav);
+    overlay.addEventListener('click', toggleMobileNav);
+  </script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - 2001 Nails of Woodbury, MN 55125</title>
+  <meta name="description" content="Get in touch with 2001 Nails of Woodbury, MN 55125. Call (651) 578-8423 or submit our contact form. Open Mon-Sat 10am-7pm, Sun 10am-5pm.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/blobs-02.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/global.css">
+  
+  <style>
+    /* Contact Page Custom Styles */
+    
+    .contact-banner {
+      position: relative;
+      background-image: linear-gradient(rgba(79, 90, 66, 0.5), rgba(48, 45, 40, 0.66)), url('/assets/images/services-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0 80px;
+      text-align: center;
+      color: var(--color-white);
+    }
+    
+    .contact-banner h1 {
+      color: var(--color-white);
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .contact-banner p {
+      font-family: var(--font-subheadings);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold-light);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin: 60px 0 80px;
+    }
+    
+    .contact-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    
+    .info-card {
+      display: flex;
+      gap: 20px;
+      background-color: var(--color-white);
+      padding: 24px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(79, 90, 66, 0.08);
+    }
+    
+    .info-card-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--color-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(79, 90, 66, 0.08);
+    }
+    
+    .info-card-text h3 {
+      font-family: var(--font-subheadings);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .info-card-text p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+    
+    /* Map Container */
+    .map-container {
+      width: 100%;
+      height: 300px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--color-border);
+      margin-top: 10px;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    /* Form block */
+    .contact-form-card {
+      background-color: var(--color-white);
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(79, 90, 66, 0.08);
+    }
+    
+    .contact-form-card h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .contact-form-card p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .form-label {
+      display: block;
+      font-family: var(--font-subheadings);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+    
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      background-color: var(--color-bg);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--color-primary);
+      background-color: var(--color-white);
+      box-shadow: 0 0 0 3px rgba(79, 90, 66, 0.09);
+    }
+    
+    .form-textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    .status-msg {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      display: none;
+    }
+    
+    .status-success {
+      background-color: #e6f4ea;
+      color: #137333;
+      border: 1px solid #c2e7cd;
+    }
+    
+    .status-error {
+      background-color: #fce8e6;
+      color: #c5221f;
+      border: 1px solid #fad2cf;
+    }
+    
+    /* Responsive styling */
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-banner h1 {
+        font-size: 2.8rem;
+      }
+      .contact-form-card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <a href="/" class="logo-container">
+        <span class="logo-text">2001 NAILS</span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/gallery.html" class="nav-link">Gallery</a>
+        <a href="/services.html" class="nav-link">Services</a>
+        <a href="/contact.html" class="nav-link active">Contact Us</a>
+        <a href="tel:+16515788423" class="cta-phone-btn">
+          <i class="fas fa-phone-alt"></i> (651) 578-8423
+        </a>
+      </nav>
+
+      <button class="burger-menu" id="burger-btn" aria-label="Toggle menu">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="/services.html" class="mobile-nav-link">Services</a>
+    <a href="/contact.html" class="mobile-nav-link active">Contact Us</a>
+    <div class="mobile-nav-cta">
+      <a href="tel:+16515788423" class="cta-phone-btn" style="display: flex; justify-content: center; width: 100%;">
+        <i class="fas fa-phone-alt"></i> (651) 578-8423
+      </a>
+    </div>
+  </nav>
+
+  <!-- Contact Banner -->
+  <section class="contact-banner">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Visit Us or Get in Touch</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="contact-grid">
+      
+      <!-- Contact details & Map -->
+      <div class="contact-info-block">
+        
+        <!-- Address info -->
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="info-card-text">
+            <h3>Location</h3>
+            <p>1815 Radio Dr<br>Woodbury, MN 55125</p>
+          </div>
+        </div>
+
+        <!-- Phone info -->
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="info-card-text">
+            <h3>Call Spa</h3>
+            <p><a href="tel:+16515788423" style="color: var(--color-primary); font-weight: 600;">(651) 578-8423</a></p>
+          </div>
+        </div>
+
+        <!-- Email info -->
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fas fa-envelope"></i></div>
+          <div class="info-card-text">
+            <h3>Email</h3>
+            <p><a href="mailto:2001nailsofwoodbury@gmail.com" style="color: var(--color-primary); font-weight: 600;">2001nailsofwoodbury@gmail.com</a></p>
+          </div>
+        </div>
+
+        <!-- Hours info -->
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fas fa-clock"></i></div>
+          <div class="info-card-text">
+            <h3>Business Hours</h3>
+            <p><strong>Mon - Sat:</strong> 10:00 AM - 7:00 PM</p>
+            <p><strong>Sunday:</strong> 10:00 AM - 5:00 PM</p>
+          </div>
+        </div>
+
+        <!-- Google Map embed -->
+        <div class="map-container">
+          <!-- Radio Drive map location -->
+          <iframe 
+            src="https://www.google.com/maps?q=1815%20Radio%20Dr%2C%20Woodbury%2C%20MN%2055125&output=embed" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="2001 Nails of Woodbury Location Map">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="contact-form-card">
+        <h2>Get in Touch</h2>
+        <p>Drop us a line and our manager will reply to you as soon as possible.</p>
+        
+        <!-- Form statuses -->
+        <div class="status-msg status-success" id="form-success-message"></div>
+        <div class="status-msg status-error" id="form-error-message"></div>
+
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="form-name" class="form-label">Full Name *</label>
+            <input type="text" id="form-name" class="form-input" placeholder="Your Name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="form-email" class="form-label">Email Address *</label>
+            <input type="email" id="form-email" class="form-input" placeholder="Your Email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="form-phone" class="form-label">Phone Number</label>
+            <input type="tel" id="form-phone" class="form-input" placeholder="Your Phone Number">
+          </div>
+          
+          <div class="form-group">
+            <label for="form-message" class="form-label">Message *</label>
+            <textarea id="form-message" class="form-textarea" placeholder="How can we help you?" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn" id="submit-btn" style="width: 100%;">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>About Spa</h4>
+          <p>Located in the heart of Woodbury, MN 55125, 2001 Nails of Woodbury is your go-to nail salon for all your beauty needs. Visit us for premium experiences of manicures, pedicures, and nail care.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/LeLaniNailSpa" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lelani_nail_spa" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.yelp.com/biz/le-lani-nail-spa-los-angeles" target="_blank" class="social-link" aria-label="Yelp"><i class="fab fa-yelp"></i></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=1815%20Radio%20Dr%2C%20Woodbury%2C%20MN%2055125" target="_blank" class="social-link" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Business Hours</h4>
+          <p><strong>Mon - Sat:</strong> 10:00 AM - 7:00 PM</p>
+          <p><strong>Sunday:</strong> 10:00 AM - 5:00 PM</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact & Location</h4>
+          <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--color-gold);"></i> 1815 Radio Dr<br>Woodbury, MN 55125</p>
+          <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--color-gold);"></i> <a href="tel:+16515788423">(651) 578-8423</a></p>
+          <p><i class="fas fa-envelope" style="margin-right: 8px; color: var(--color-gold);"></i> 2001nailsofwoodbury@gmail.com</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 2001 Nails of Woodbury. All Rights Reserved. | nail salon 55125 | best nail salon woodbury</p>
+        <p>Design inspired by NailSoft</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page Scripts -->
+  <script src="/assets/js/contact.js"></script>
+</body>
+</html>
