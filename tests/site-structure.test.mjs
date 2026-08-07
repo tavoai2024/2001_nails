@@ -37,6 +37,7 @@ test('public content uses only the 2001 Nails brand', () => {
   for (const pageEntry of pageEntries) {
     const html = readFileSync(resolve(projectRoot, pageEntry), 'utf8');
     assert.match(html, /2001 Nails/i, `${pageEntry} is missing the current brand`);
+    assert.doesNotMatch(html, /nailsoft|design(?:ed)?\s+(?:by|inspired by)/i);
   }
 
   for (const brandSurfaceFile of brandSurfaceFiles) {
