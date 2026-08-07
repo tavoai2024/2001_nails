@@ -7,7 +7,7 @@
   <meta name="description" content="Explore beautiful nail art designs, luxury manicures, and pedicures at 2001 Nails of Woodbury. Our gallery showcases current trends and professional spa work in Woodbury, MN.">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/assets/images/blobs-02.png">
+  <link rel="icon" type="image/png" href="/assets/brand/logo-favicon.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,87 +52,82 @@
       font-size: 1.05rem;
     }
 
-    /* Grid of Placeholders */
+    /* Photo Gallery */
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      column-count: 3;
+      column-gap: 24px;
       margin-bottom: 80px;
     }
-    
-    .gallery-placeholder-card {
+
+    .gallery-card {
+      break-inside: avoid;
+      margin: 0 0 24px;
       background-color: var(--color-white);
-      border: 2px dashed var(--color-gold-light);
-      border-radius: var(--radius-organic);
-      aspect-ratio: 1/1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      text-align: center;
-      transition: var(--transition-smooth);
-      position: relative;
-      cursor: pointer;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(176, 139, 91, 0.2);
+      box-shadow: var(--box-shadow);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-    
-    .gallery-placeholder-card:hover {
-      border-color: var(--color-primary);
+
+    .gallery-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--box-shadow-hover);
     }
-    
-    .placeholder-icon {
-      font-size: 2.2rem;
-      color: var(--color-gold);
-      margin-bottom: 16px;
-      transition: var(--transition-smooth);
-    }
-    
-    .gallery-placeholder-card:hover .placeholder-icon {
-      color: var(--color-primary);
-      transform: scale(1.1);
-    }
-    
-    .placeholder-title {
-      font-family: var(--font-subheadings);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--color-primary);
-      margin-bottom: 8px;
-    }
-    
-    .placeholder-desc {
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
-      max-width: 200px;
+
+    .gallery-photo-frame {
+      display: block;
+      overflow: hidden;
+      background-color: var(--color-bg);
     }
 
-    .placeholder-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: var(--color-bg);
-      color: var(--color-primary);
-      font-family: var(--font-subheadings);
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      letter-spacing: 0.05em;
+    .gallery-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease;
     }
-    
+
+    .gallery-card:hover .gallery-image {
+      transform: scale(1.025);
+    }
+
+    .gallery-caption {
+      padding: 22px 24px 24px;
+    }
+
+    .gallery-tag {
+      display: inline-block;
+      font-family: var(--font-subheadings);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .gallery-caption h2 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .gallery-caption p {
+      margin-bottom: 0;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
     /* Responsive */
     @media (max-width: 992px) {
       .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        column-count: 2;
       }
     }
-    
+
     @media (max-width: 768px) {
       .gallery-grid {
-        grid-template-columns: 1fr;
+        column-count: 1;
       }
       .gallery-header h1 {
         font-size: 2.5rem;
@@ -148,15 +143,15 @@
   <!-- Header -->
   <header id="header">
     <div class="container">
-      <a href="/" class="logo-container">
+      <a href="./" class="logo-container">
         <span class="logo-text">2001 NAILS</span>
       </a>
       
       <nav class="nav-menu">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/gallery.html" class="nav-link active">Gallery</a>
-        <a href="/services.html" class="nav-link">Services</a>
-        <a href="/contact.html" class="nav-link">Contact Us</a>
+        <a href="./" class="nav-link">Home</a>
+        <a href="gallery.html" class="nav-link active">Gallery</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
         <a href="tel:+16515788423" class="cta-phone-btn">
           <i class="fas fa-phone-alt"></i> (651) 578-8423
         </a>
@@ -172,10 +167,10 @@
 
   <!-- Mobile Navigation Drawer -->
   <nav class="mobile-nav" id="mobile-nav">
-    <a href="/" class="mobile-nav-link">Home</a>
-    <a href="/gallery.html" class="mobile-nav-link active">Gallery</a>
-    <a href="/services.html" class="mobile-nav-link">Services</a>
-    <a href="/contact.html" class="mobile-nav-link">Contact Us</a>
+    <a href="./" class="mobile-nav-link">Home</a>
+    <a href="gallery.html" class="mobile-nav-link active">Gallery</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
     <div class="mobile-nav-cta">
       <a href="tel:+16515788423" class="cta-phone-btn" style="display: flex; justify-content: center; width: 100%;">
         <i class="fas fa-phone-alt"></i> (651) 578-8423
@@ -194,58 +189,87 @@
   <!-- Main Content -->
   <main class="container" style="margin-top: 40px;">
     
-    <p class="gallery-intro-text">Explore our collection of hand-crafted nail sets, luxurious treatments, and artistic designs. Hover or click to view placeholder details. Images will be uploaded here shortly.</p>
+    <p class="gallery-intro-text">Explore hand-crafted nail sets created at 2001 Nails of Woodbury, from delicate florals and modern French tips to rich seasonal color.</p>
 
-    <!-- Grid of placeholders -->
+    <!-- Nail art gallery -->
     <div class="gallery-grid">
-      
-      <!-- Card 1 -->
-      <div class="gallery-placeholder-card">
-        <span class="placeholder-badge">Nail Art</span>
-        <i class="fa-regular fa-image placeholder-icon"></i>
-        <h3 class="placeholder-title">Aesthetic Gel-X Set</h3>
-        <p class="placeholder-desc">Placeholder container for a custom chrome or cat-eye nail extension photo.</p>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="gallery-placeholder-card">
-        <span class="placeholder-badge">Manicure</span>
-        <i class="fa-regular fa-image placeholder-icon"></i>
-        <h3 class="placeholder-title">Builder Gel Overlay</h3>
-        <p class="placeholder-desc">Placeholder container for natural builder gel overlays with clean finishes.</p>
-      </div>
+      <figure class="gallery-card">
+        <div class="gallery-photo-frame">
+          <img src="/assets/gallery/web/nails1.jpg" alt="Pink and yellow floral nail art with three-dimensional flower accents" class="gallery-image" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption">
+          <span class="gallery-tag">Nail Art</span>
+          <h2>Summer Blossom Set</h2>
+          <p>Playful pastel French tips finished with hand-crafted floral details.</p>
+        </figcaption>
+      </figure>
 
-      <!-- Card 3 -->
-      <div class="gallery-placeholder-card">
-        <span class="placeholder-badge">Pedicure</span>
-        <i class="fa-regular fa-image placeholder-icon"></i>
-        <h3 class="placeholder-title">Deluxe Spa Pedicure</h3>
-        <p class="placeholder-desc">Placeholder container for feet soaking, sugar scrub, and clean polish.</p>
-      </div>
+      <figure class="gallery-card">
+        <div class="gallery-photo-frame">
+          <img src="/assets/gallery/web/nails2.jpg" alt="Short natural nails with blue and white floral art" class="gallery-image" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption">
+          <span class="gallery-tag">Manicure</span>
+          <h2>Blue Botanical Tips</h2>
+          <p>A clean natural base with delicate blue petals and dotted accents.</p>
+        </figcaption>
+      </figure>
 
-      <!-- Card 4 -->
-      <div class="gallery-placeholder-card">
-        <span class="placeholder-badge">Nail Art</span>
-        <i class="fa-regular fa-image placeholder-icon"></i>
-        <h3 class="placeholder-title">French Tip Variations</h3>
-        <p class="placeholder-desc">Placeholder container for classic white and colored french tips on hands.</p>
-      </div>
+      <figure class="gallery-card">
+        <div class="gallery-photo-frame">
+          <img src="/assets/gallery/web/nails3.jpg" alt="Soft pink and white French manicure with heart and bow line art" class="gallery-image" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption">
+          <span class="gallery-tag">French Tips</span>
+          <h2>Sweetheart French</h2>
+          <p>Milky white tips with fine bows, lace-inspired lines, and hearts.</p>
+        </figcaption>
+      </figure>
 
-      <!-- Card 5 -->
-      <div class="gallery-placeholder-card">
-        <span class="placeholder-badge">Nail Art</span>
-        <i class="fa-regular fa-image placeholder-icon"></i>
-        <h3 class="placeholder-title">Custom Design Set</h3>
-        <p class="placeholder-desc">Placeholder container for seasonal designs and detailed hand-painted artwork.</p>
-      </div>
+      <figure class="gallery-card">
+        <div class="gallery-photo-frame">
+          <img src="/assets/gallery/web/nails4.jpg" alt="Long red glitter nails with hand-painted cherry accents" class="gallery-image" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption">
+          <span class="gallery-tag">Seasonal Design</span>
+          <h2>Cherry Sparkle</h2>
+          <p>Rich red glitter paired with hand-painted cherry details.</p>
+        </figcaption>
+      </figure>
 
-      <!-- Card 6 -->
-      <div class="gallery-placeholder-card">
-        <span class="placeholder-badge">Spa Interior</span>
-        <i class="fa-regular fa-image placeholder-icon"></i>
-        <h3 class="placeholder-title">Woodbury Relaxation</h3>
-        <p class="placeholder-desc">Placeholder container showcasing our clean, sterilized spa interior.</p>
-      </div>
+      <figure class="gallery-card">
+        <div class="gallery-photo-frame">
+          <img src="/assets/gallery/web/nails5.jpg" alt="Neutral manicure with white floral French tips and gold glitter" class="gallery-image" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption">
+          <span class="gallery-tag">Manicure</span>
+          <h2>Soft Floral French</h2>
+          <p>Natural blush tones with white petals and a subtle gold shimmer.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-card">
+        <div class="gallery-photo-frame">
+          <img src="/assets/gallery/web/nails6.jpg" alt="Short burgundy manicure with autumn floral accent nails" class="gallery-image" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption">
+          <span class="gallery-tag">Nail Art</span>
+          <h2>Autumn Botanicals</h2>
+          <p>Velvety burgundy balanced by warm, hand-painted floral accents.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-card">
+        <div class="gallery-photo-frame">
+          <img src="/assets/gallery/web/nails7.jpg" alt="Burgundy and blush manicure with cherry and polka-dot nail art" class="gallery-image" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption">
+          <span class="gallery-tag">Custom Design</span>
+          <h2>Cherry Rouge</h2>
+          <p>Glossy wine tones with blush cherry and polka-dot feature nails.</p>
+        </figcaption>
+      </figure>
 
     </div>
 
@@ -259,17 +283,17 @@
           <h4>About Spa</h4>
           <p>Located in the heart of Woodbury, MN 55125, 2001 Nails of Woodbury is your go-to nail salon for all your beauty needs. Visit us for premium experiences of manicures, pedicures, and nail care.</p>
           <div class="social-links">
-            <a href="https://www.facebook.com/LeLaniNailSpa" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/lelani_nail_spa" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.yelp.com/biz/le-lani-nail-spa-los-angeles" target="_blank" class="social-link" aria-label="Yelp"><i class="fab fa-yelp"></i></a>
+            <a href="https://www.facebook.com/2001-Nails-of-Woodbury-138219222910753/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/2001nailsofwoodbury/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.google.com/maps/search/?api=1&query=1815%20Radio%20Dr%2C%20Woodbury%2C%20MN%2055125" target="_blank" class="social-link" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
           </div>
         </div>
         
         <div class="footer-col">
           <h4>Business Hours</h4>
-          <p><strong>Mon - Sat:</strong> 10:00 AM - 7:00 PM</p>
-          <p><strong>Sunday:</strong> 10:00 AM - 5:00 PM</p>
+          <p><strong>Mon - Fri:</strong> 9:30 AM - 7:30 PM</p>
+          <p><strong>Saturday:</strong> 9:00 AM - 6:00 PM</p>
+          <p><strong>Sunday</strong>: Closed</p>
         </div>
         
         <div class="footer-col">
@@ -281,7 +305,7 @@
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2026 2001 Nails of Woodbury. All Rights Reserved. | nail salon 55125 | best nail salon woodbury</p>
+        <p>&copy; 2026 2001 Nails of Woodbury. All Rights Reserved.</p>
         <p>Design inspired by NailSoft</p>
       </div>
     </div>

@@ -1,11 +1,11 @@
-# Le Lani Nail Spa Static Site
+# 2001 Nails of Woodbury Static Site
 
-Static multi-page website for Le Lani Nail Spa, built with plain HTML, CSS, JavaScript, and Vite for local development and production builds.
+Static multi-page website for 2001 Nails of Woodbury, built with plain HTML, CSS, JavaScript, and Vite for local development and production builds.
 
 ## Pages
 
 - `index.html` - Home page with hero, services highlights, testimonials, and salon information.
-- `services.html` - Service menu with a cash/credit price toggle.
+- `services.html` - Manicure, pedicure, kids, and add-on service menu.
 - `gallery.html` - Gallery and design inspiration page.
 - `contact.html` - Contact details, embedded map, and client-side contact form validation.
 
@@ -68,33 +68,31 @@ npm run preview
 
 ## JavaScript Behavior
 
-- `assets/js/services.js` updates service prices when visitors switch between cash and credit pricing.
+- `assets/js/services.js` handles the services page header and mobile navigation.
 - `assets/js/contact.js` validates required contact form fields and email format before showing a mock success state.
 - Both scripts also handle the sticky header scroll state and mobile navigation toggle on their respective pages.
 
 The contact form is currently front-end only. To process real submissions, connect it to a trusted backend or form service and validate all submitted fields server-side.
 
-## Build Notes
-
-The Vite build includes all four HTML entry points configured in `vite.config.js`.
-
-Current build output succeeds, but Vite warns that these page scripts are not bundled because their script tags do not use `type="module"`:
-
-- `/assets/js/services.js` in `services.html`
-- `/assets/js/contact.js` in `contact.html`
-
-This is acceptable for the current static setup because the scripts are plain browser JavaScript. Convert them to module scripts if they need bundling, imports, or Vite processing later.
-
 ## Testing
 
-There is no automated test suite configured yet. For now, verify changes by running:
+Run the automated site checks:
+
+```sh
+npm test
+```
+
+Then build and preview the production site:
 
 ```sh
 npm run build
+npm run preview
 ```
 
-Then manually check the home, services, gallery, and contact pages in a browser.
+## GitHub Pages Deployment
 
-## Deployment
+The repository includes `.github/workflows/deploy-pages.yml`. Every push to `main` tests the site, builds the `dist/` directory with the `/2001_nails/` base path, and deploys it to GitHub Pages.
 
-Deploy the generated `dist/` directory to any static hosting provider. Make sure the host serves the site from the domain root, because asset paths currently use root-relative URLs such as `/assets/css/global.css`.
+For the initial setup, open the repository on GitHub and select **Settings → Pages → Build and deployment → Source → GitHub Actions**. After that, pushes to `main` deploy automatically. The default project URL is:
+
+`https://tavoai2024.github.io/2001_nails/`

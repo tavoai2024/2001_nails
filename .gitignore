@@ -7,3 +7,15 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Local source photos; optimized, metadata-free copies are committed for the site.
+assets/gallery/nails1.JPG
+assets/gallery/nails2.jpeg
+assets/gallery/nails3.heic
+assets/gallery/nails3.jpeg
+assets/gallery/nails4.jpeg
+assets/gallery/nails5.jpeg
+assets/gallery/nails6.jpeg
+assets/gallery/nails7.jpeg
+assets/images/pexels-cottonbro-5999081.jpg
+assets/images/pexels-gustavo-fring-7446914.jpg
